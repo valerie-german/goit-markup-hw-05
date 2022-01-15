@@ -99,7 +99,7 @@ body {
   transition: color var(--transit-dur) var(--transit-time-funct);
 }
 .site-nav .link.current {
-  color: var(--accent-color);
+  color: var(--accent-color); 
 }
 .head {
   background-color: var(--primary-white-color) ;
@@ -128,6 +128,8 @@ body {
 .contacts .link:focus {
   color: var(--accent-color);
 }
+
+
 
 /* Размещение контактов*/
 .header .contacts {
@@ -166,14 +168,15 @@ body {
 }
 /* Подчёркивание пункта меню текущей страницы */
 .link.current::after {
+  position: absolute;
+  bottom: 0;
   display: block;  
   content: '';
-  width: 100%;
+  width: 100%;  
   height: 4px;
   border-radius: 2px;
   background-color: var(--accent-color);
-  position: absolute;
-  bottom: 0;
+    
 }
 /* -----------------------2. Main------------------- */
 /* 2.1. Цвет заголовков */
@@ -383,18 +386,18 @@ body {
   position: relative;
 }
 .services-desc{
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   width: 100%;
-  height: 70px;
-  bottom: 0;
-  left: 0;
+  height: 70px;  
   text-transform: uppercase;
   font-weight: 700;
-font-size: 14px;
-line-height: 16px;
+  font-size: 14px;
+  line-height: 16px;
   color: var(--primary-white-color);
   background-color: rgba(47, 48, 58, 0.8);;
 }
@@ -703,4 +706,56 @@ line-height: 16px;
   letter-spacing: 0.03em;
   color: var(--primary-white-color);
   margin-bottom: 20px;
+}
+/* --------------------------4. Модальное окно---------------------- */
+.backdrop{ 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity:1;
+  transition: opacity var(--transit-dur) var(--transit-time-funct);
+}
+
+.backdrop.is-hidden{
+  opacity:0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal{
+  transform:translate(-50%, -50%) scale(0.7);
+}
+
+.modal{
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  width: 528px;
+  height: 581px;
+  padding: 8px;
+  background-color: var(--primary-white-color);
+  border-radius: 4px;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%) scale(1);
+  transition: transform var(--transit-dur) var(--transit-time-funct);
+}
+.modal-close{
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border:1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-white-color);
+  cursor: pointer;
+}
+
+.modal-close .icon{
+  width: 11px;
+  height: 11px;
 }
