@@ -187,6 +187,11 @@ body {
   }
 }
 /* -----------------------2. Main------------------- */
+
+/* Отступ от фиксированного хедера */
+.main{
+  margin-top: 80px;
+}
 /* 2.1. Цвет заголовков */
 .section-title,
 .title {
@@ -195,7 +200,7 @@ body {
 
 /*2.2. Герой */
 .hero {
-  margin: 80px auto 0;
+  margin: 0 auto;
   
   /* text-align: center; */
   max-width: 1600px;
@@ -586,7 +591,7 @@ body {
   left: 0;
   padding: 24px 24px;
   background-color: rgba(33, 150, 243, 0.9);
-  transform: translateY(100%);
+  transform: translateY(102%);
   transition: transform var(--transit-dur) var(--transit-time-funct);
 }
 .cases .overlay-text{
